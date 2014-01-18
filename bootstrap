@@ -265,7 +265,7 @@ install_dotfiles () {
             ;;
     esac
 
-    overwrite_all=false
+    overwrite_all=true
     backup_all=false
     skip_all=false
 

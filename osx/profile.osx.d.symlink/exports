@@ -1,0 +1,13 @@
+# =============
+# = By Ashkan =
+
+export JAVA_HOME='/Library/Java/Home'
+#export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home'
+export JAVA_OPTS="-Xmx512M -XX:PermSize=256m -XX:MaxPermSize=512m -Djava.awt.headless=true"
+export CATALINA_HOME='/Library/Tomcat/Home'
+export EXE4J_JAVA_HOME=$JAVA_HOME
+export ARCHFLAGS='-arch x86_64'
+export HTML_TIDY=$HOME/.tidy_conf
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# =============

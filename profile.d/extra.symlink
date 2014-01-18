@@ -19,7 +19,6 @@ alias ping='ping -a'
 alias ps='ps auxc'
 alias rmsvn='rm -rf `find . -type d -name .svn`'  
 alias edit='$EDITOR $@'
-alias flush="dscacheutil -flushcache" # Flush DNS cache
 alias oports='netstat -anltp | grep LISTEN'
 alias redis-up='redis-server /usr/local/etc/redis.conf > /dev/null &'
 alias redis-down='killall redis-server'

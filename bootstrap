@@ -3,6 +3,8 @@
 
 DOTFILES_ROOT="$HOME/.dotfiles"
 
+sudo -v #ask for administrator password only at beginning
+
 set -e
 
 show_help () { cat <<HELP
@@ -168,20 +170,34 @@ check_bash_suffix () {
 # =============
 # = by Ashkan =
 install_z() {
+  if [ -d "$HOME/.z" ]; then
+    info "z is already installed. Good job!"
+    return
+  fi
+  
   if type git >/dev/null 2>&1; then
     git clone https://github.com/rupa/z.git "$HOME/.z"
     chmod +x $HOME/.z/z.sh
-    cat "source $HOME/.z/z.sh" >> "$HOME/.bash_profile"
+    echo "source $HOME/.z/z.sh" >> "$HOME/.bash_profile"
   else
       info 'git not found!!!!'
-  fi
-  
+  fi 
+}
+
+configure_dnsmasq() {
+    cp /usr/local/opt/dnsmasq/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
+    echo "address=/.dev/127.0.0.1" >> "/usr/local/etc/dnsmasq.conf"
+    sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
+    sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+    # scutil --dns | grep nameserver\[[0-9]*\]
+    # sudo networksetup -setdnsservers Wi-Fi 127.0.0.1
+    dscacheutil -flushcache
 }
 # =============
 
 install_dotfiles () {
     info 'Installing dotfiles'
-
+    
     case "$SHELL" in
         zsh )
             if [[ $(uname -s) == "Linux" ]]; then
@@ -233,7 +249,8 @@ install_dotfiles () {
             
             # =============
             # = By Ashkan =
-            install_z
+            # install_z
+            configure_dnsmasq
             # =============
             
             ;;
@@ -369,6 +386,14 @@ unset $INSTALL_BASH_IT
 unset $INSTALL_JANUS
 # Initialize
 check_shell
+
+# =============
+# = By Ashkan =
+info "Setting home.dev for easy access to localhost"
+sudo cat "127.0.0.1     home.dev" >> "/private/etc/hosts"
+sudo cat "fe80::1%lo0     home.dev" >> "/private/etc/hosts"
+# =============
+
 
 echo
 echo 'All installed!'

@@ -54,3 +54,15 @@ function unquarantine() {
 function mute () {
     osascript -e "set volume 0"
 }
+
+# =============
+# = By Ashkan =
+function nicemount() { 
+(echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | column -t;
+}  
+
+function pubkey() {
+  more $HOME/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'
+}
+
+# =============

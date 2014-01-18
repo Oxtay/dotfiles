@@ -1,6 +1,7 @@
 # Modified/Stolen from:
 # http://mths.be/dotfiles
 
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
@@ -24,20 +25,6 @@ for file in ~/.{exports,aliases,functions,fun,extra}; do
 done
 unset file
 
-# Add any system specifics to /etc/bashrc
-if [ -r "/etc/bashrc" ]; then
-    source "/etc/bashrc"
-fi
-
-# ==========
-# = By Ashkan =
-# ==========
-if [ -z "$PS1" ]; then
-   return
-fi
-
-# shows git branch in color if I am in a git repo directory
-PS1='\W\[\033[0;31m\]`git branch 2>/dev/null|cut -f2 -d\* -s`\[\033[00m\] $'
 
 # Vim mode in shell
 set -o vi
@@ -45,6 +32,11 @@ set -o vi
 # bash completions for brew
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
+fi
+
+# bash completions for gibo
+if [ -f `brew --prefix`/Cellar/gibo/../etc/bash_completion.d/gibo-completion.bash ]; then
+    . `brew --prefix`/Cellar/gibo/../etc/bash_completion.d/gibo-completion.bash
 fi
 
 # bash completion for pip
@@ -66,5 +58,16 @@ fi
 if [[ -s "$HOME/.grails/scripts/bash_completion" ]] ; then
   source "$HOME/.grails/scripts/bash_completion"
 fi
+
+
+# ==========
+# = By Ashkan =
+if [ -z "$PS1" ]; then
+   return
+fi
+# shows git branch in color if I am in a git repo directory
+$PS1='\W\[\033[0;31m\]`git branch 2>/dev/null|cut -f2 -d\* -s`\[\033[00m\] $'
+# ==========
+
 
 

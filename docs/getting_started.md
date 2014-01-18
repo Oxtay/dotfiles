@@ -55,7 +55,7 @@ The goal is to have a single, unified, dotfile repo for all the systems on which
 
 By default **Dotfile Boilerplate** includes config files for:
 
-- bash (including `.bash_profile`, `.bashrc` and `.bash_prompt`)
+- bash (including `.bash_profile`, `.bashrc`)
 - zsh
 - vim (both `.vimrc` and `.vim/` directory with Pathogen)
 - tmux

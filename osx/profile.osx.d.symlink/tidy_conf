@@ -1,0 +1,14 @@
+write-back: yes
+wrap: 0
+indent: auto
+indent-spaces: 4
+wrap-php: no
+clean: yes
+drop-empty-paras: no
+drop-empty-elements: no
+enclose-text: yes
+char-encoding: utf8
+input-encoding: utf8
+output-encoding: utf8
+tidy-mark: no
+tab-size: 4

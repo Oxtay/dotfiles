@@ -1,0 +1,34 @@
+[user]
+        name = Ashkan Roshanayi
+        email = ashkan.roshanayi@gmail.com
+
+[github]
+        user = ashkanr
+        
+[alias]
+      	deletelocalmerged = "!f() { git branch -d `git branch --merged | grep -v '^*' | tr -d '\n'` }; f"
+      	gg = !"git commit -v -a -m '$*'"
+      	undo = !"git reset --soft HEAD^"
+    
+[difftool "Kaleidoscope"]
+        cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[diff]
+        tool = Kaleidoscope
+
+[difftool]
+        prompt = false
+
+[mergetool "Kaleidoscope"]
+        cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+        trustExitCode = true
+
+[mergetool]
+        prompt = false
+        keepBackup = true
+
+[merge]
+        tool = Kaleidoscope
+  
+[credential]
+	helper = osxkeychain

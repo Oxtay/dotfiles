@@ -1,0 +1,23 @@
+#!/bin/bash
+brew update
+brew upgrade
+brew tap homebrew/versions
+brew tap phinze/homebrew-cask
+
+brew install curl
+brew install ctags
+brew install ack
+brew install bash
+brew install brew-cask
+brew install git
+brew install hub
+brew install imagemagick
+brew install imagesnap
+sudo ln -s /usr/local/bin/imagesnap /usr/bin/
+brew install pv
+brew install ssh-copy-id
+brew install vim
+brew install wget --enable-iri
+brew install tree
+
+brew cleanup

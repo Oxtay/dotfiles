@@ -17,9 +17,6 @@ for option in autocd globstar; do
     shopt -s "$option" 2> /dev/null
 done
 
-if [ -r ~/.bash_prompt ]; then
-    source ~/.bash_prompt
-fi
 
 # Load ~/.exports, ~/.aliases, ~/.functions, ~/.fun, and ~/.extra
 for file in ~/.{exports,aliases,functions,fun,extra}; do
@@ -31,3 +28,43 @@ unset file
 if [ -r "/etc/bashrc" ]; then
     source "/etc/bashrc"
 fi
+
+# ==========
+# = By Ashkan =
+# ==========
+if [ -z "$PS1" ]; then
+   return
+fi
+
+# shows git branch in color if I am in a git repo directory
+PS1='\W\[\033[0;31m\]`git branch 2>/dev/null|cut -f2 -d\* -s`\[\033[00m\] $'
+
+# Vim mode in shell
+set -o vi
+
+# bash completions for brew
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+# bash completion for pip
+_pip_completion() {
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 ) )
+}
+complete -o default -F _pip_completion pip
+
+# load rvm & bash completion for rvm
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+  source "$HOME/.rvm/scripts/rvm"
+fi
+[[ -r $HOME/.rvm/scripts/completion ]] && . $HOME/.rvm/scripts/completion
+
+
+# bash completion for grails
+if [[ -s "$HOME/.grails/scripts/bash_completion" ]] ; then
+  source "$HOME/.grails/scripts/bash_completion"
+fi
+
+

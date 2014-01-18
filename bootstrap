@@ -165,6 +165,20 @@ check_bash_suffix () {
     fi
 }
 
+# =============
+# = by Ashkan =
+install_z() {
+  if type git >/dev/null 2>&1; then
+    git clone https://github.com/rupa/z.git "$HOME/.z"
+    chmod +x $HOME/.z/z.sh
+    cat "source $HOME/.z/z.sh" >> "$HOME/.bash_profile"
+  else
+      info 'git not found!!!!'
+  fi
+  
+}
+# =============
+
 install_dotfiles () {
     info 'Installing dotfiles'
 
@@ -188,7 +202,8 @@ install_dotfiles () {
 		fi
             fi
             ;;
-        bash )
+        bash )            
+            
             if [[ $(uname -s) == "Linux" ]]; then
                 if ${INSTALL_BASH_IT:-false}; then
                     files=$(find "$DOTFILES_ROOT" -maxdepth 2 -name \*.symlink -print | grep -v "bash" | grep -v "osx" | grep -v "zsh")
@@ -196,6 +211,13 @@ install_dotfiles () {
                     files=$(find "$DOTFILES_ROOT" -maxdepth 2 -name \*.symlink -print | grep -v "osx" | grep -v "zsh")
                 fi
             elif [[ $(uname -s) == "Darwin" ]]; then
+                # =============
+                # = By Ashkan =
+                info "Updating & installing required brews..."
+                chmod +x $DOTFILES_ROOT/osx/brew
+                source $DOTFILES_ROOT/osx/brew
+                success "All brews are installed successfuly."
+                # =============
                 if ${INSTALL_BASH_IT:-false}; then
                     files=$(find "$DOTFILES_ROOT" -maxdepth 2 -name \*.symlink -print | grep -v "bash" | grep -v "linux" | grep -v "zsh")
                 else
@@ -208,6 +230,12 @@ install_dotfiles () {
                     files=$(find "$DOTFILES_ROOT" -maxdepth 2 -name \*.symlink -print | grep -v "linux" | grep -v "osx" | grep -v "zsh")
                 fi
             fi
+            
+            # =============
+            # = By Ashkan =
+            install_z
+            # =============
+            
             ;;
         * )
             if [[ $(uname -s) == "Linux" ]]; then

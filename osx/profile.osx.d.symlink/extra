@@ -1,0 +1,28 @@
+# =============
+# = By Ashkan =
+alias b='brew'
+alias jk='jekyll'
+alias jp='open http://localhost:4000 && rake preview'
+alias jg='rake generate' 
+alias cbi='cordova build ios'
+alias cba='cordova build android'
+
+export JAVA_HOME='/Library/Java/Home'
+#export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home'
+export JAVA_OPTS="-Xmx512M -XX:PermSize=256m -XX:MaxPermSize=512m -Djava.awt.headless=true"
+export CATALINA_HOME='/Library/Tomcat/Home'
+export EXE4J_JAVA_HOME=$JAVA_HOME
+export ARCHFLAGS='-arch x86_64'
+export HTML_TIDY=$HOME/.tidy_conf
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+function nicemount() { 
+(echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | column -t;
+}  
+
+function pubkey() {
+  more $HOME/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'
+}
+# =============
+
+ 

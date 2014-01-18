@@ -30,6 +30,7 @@ alias sg='script/generate' # for rails
 alias sd='script/destroy' # for rails
 alias sc='script/console' # for rails
 alias migrate='rake db:migrate db:test:clone' # for rails
+alias gs='git status'
 
 export LESS='-i-P%f (%i/%m) Line %lt/%Line'
 export PYTHONSTARTUP=$HOME/.pythonrc

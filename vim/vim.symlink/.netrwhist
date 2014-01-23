@@ -1,5 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/ashkan/projects/current/gary/bin'
 let g:netrw_dirhist_2='/Users/ashkan/.dotfiles'
 let g:netrw_dirhist_3='/Users/ashkan/.dotfiles/screen'
+let g:netrw_dirhist_4='/Users/ashkan/.dotfiles'
+let g:netrw_dirhist_5='/Users/ashkan/.dotfiles/git'
+let g:netrw_dirhist_6='/Users/ashkan/.dotfiles'
+let g:netrw_dirhist_7='/Users/ashkan/.dotfiles/docs'
+let g:netrw_dirhist_8='/Users/ashkan/.dotfiles/vim'

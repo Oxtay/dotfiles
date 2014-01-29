@@ -1,0 +1,45 @@
+# Display the name of the home directory.
+windowTitle         = "$TM_DISPLAYNAME — ${CWD/^.*\///}"
+
+# Exclude old *.tmproj files.
+exclude             = "{$exclude,*.tmproj,Gemfile.lock}"
+
+# Variables.
+TM_GIT              = "/usr/local/bin/git"
+
+# General settings.
+showInvisibles      = false
+spellChecking       = true
+fontName = "Monaco" 
+fontSize = 15
+
+[ text ]
+softWrap            = true
+wrapColumn          = 80
+softTabs            = true
+tabSize             = 2
+
+[ text.html.markdown ]
+softWrap            = true
+wrapColumn          = "Use Window Frame"
+softTabs            = false
+tabSize             = 4
+
+[ text.plain ]
+softWrap            = true
+wrapColumn          = "Use Window Frame"
+softTabs            = false
+tabSize             = 4
+
+[ source ]
+softWrap            = false
+wrapColumn          = 80
+softTabs            = true
+tabSize             = 2
+
+[ source.plist ]
+softTabs            = false
+tabSize             = 4
+
+[ source.tm-properties ]
+spellChecking       = false

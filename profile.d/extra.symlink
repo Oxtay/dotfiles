@@ -22,14 +22,12 @@ alias edit='$EDITOR $@'
 alias oports='netstat -anltp | grep LISTEN'
 alias redis-up='redis-server /usr/local/etc/redis.conf > /dev/null &'
 alias redis-down='killall redis-server'
+alias r='ruby'
+alias rb='ruby'
 alias rs='rvm use system'
 alias r8='rvm use 1.8.7'
 alias r9='rvm use 1.9.3'
 alias rh='rvm use ruby-head'
-alias sg='script/generate' # for rails
-alias sd='script/destroy' # for rails
-alias sc='script/console' # for rails
-alias migrate='rake db:migrate db:test:clone' # for rails
 alias gs='git status'
 
 export LESS='-i-P%f (%i/%m) Line %lt/%Line'

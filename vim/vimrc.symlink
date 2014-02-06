@@ -1,11 +1,4 @@
-" ------------------- Old setup by dotfiles boilerplate ----------------- "
-" execute pathogen#infect()
-" syntax on
-" filetype plugin indent on
-"------------------------------------------------------------------------"
-
 " This following section is stolen from Gary Bernhardt's .vimrc file
-" vim:set ts=2 sts=2 sw=2 expandtab:
 
 autocmd!
 
@@ -15,9 +8,12 @@ call pathogen#incubate()
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
-filetype off " required by vundle : https://github.com/gmarik/vundle
+filetype on
+" filetype off " required by vundle : https://github.com/gmarik/vundle
+
 " allow unsaved background buffers and remember marks/undo for them
 set hidden
+
 " remember more commands and search history
 set history=10000
 set expandtab
@@ -63,7 +59,9 @@ filetype plugin indent on
 set wildmode=longest,list
 " make tab completion for files/buffers act like bash
 set wildmenu
+
 let mapleader=","
+
 " Fix slow O inserts
 :set timeout timeoutlen=1000 ttimeoutlen=100
 " Normally, Vim messes with iskeyword when you open a shell file. This can
@@ -77,31 +75,37 @@ set modelines=3
 set foldmethod=manual
 set nofoldenable
 
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
+" required! 
 Bundle 'gmarik/vundle'
+" follwing 2 bundles are for Dash in mac
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
 
-" My bundles here:
-" "
 " original repos on GitHub
 Bundle 'altercation/vim-colors-solarized'
-" Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive'
+Bundle 'wincent/Command-T'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-ruby/vim-ruby'
 
 " vim-scripts repos
 " Bundle 'L9'
-" Bundle 'FuzzyFinder'
 
 " non-GitHub repos
 " Bundle 'git://git.wincent.com/command-t.git'
 
 " Git repos on your local machine (i.e. when working on your own plugin)
-"Bundle 'file:///Users/$USER/path/to/plugin'
+" Bundle 'file:///Users/$USER/path/to/plugin'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -136,6 +140,9 @@ augroup vimrcEx
   " to run commands there.
   autocmd! CmdwinEnter * :unmap <cr>
   autocmd! CmdwinLeave * :call MapCR()
+  
+  " For  https://github.com/tpope/vim-commentary
+  autocmd FileType apache set commentstring=#\ %s
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -359,6 +366,7 @@ nnoremap <leader>T :call RunNearestTest()<cr>
 nnoremap <leader>a :call RunTests('')<cr>
 nnoremap <leader>c :w\|:!script/features<cr>
 nnoremap <leader>w :w\|:!script/features --profile wip<cr>
+nnoremap <leader>r :w\|:!ruby %<cr>
 
 function! RunTestFile(...)
     if a:0

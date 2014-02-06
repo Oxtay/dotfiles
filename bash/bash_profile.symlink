@@ -28,16 +28,6 @@ for option in autocd globstar; do
 done
 
 
-# Load ~/.exports, ~/.aliases, ~/.functions, ~/.fun, and ~/.extra
-for file in ~/.{exports,aliases,functions,fun,extra}; do
-    [ -r "$file" ] && source "$file"
-done
-unset file
-
-
-# Vim mode in shell
-set -o vi
-
 # bash completions for brew
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
@@ -56,18 +46,30 @@ _pip_completion() {
 }
 complete -o default -F _pip_completion pip
 
-# load rvm & bash completion for rvm
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
-  source "$HOME/.rvm/scripts/rvm"
-fi
-[[ -r $HOME/.rvm/scripts/completion ]] && . $HOME/.rvm/scripts/completion
-
-
 # bash completion for grails
 if [[ -s "$HOME/.grails/scripts/bash_completion" ]] ; then
   source "$HOME/.grails/scripts/bash_completion"
 fi
 
 
+# load rvm & bash completion for rvm
+# if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+#   source "$HOME/.rvm/scripts/rvm"
+# fi
+# [[ -r $HOME/.rvm/scripts/completion ]] && . $HOME/.rvm/scripts/completion
 
+
+# ===========================================================================
+# = I load PATH export as last in order to prevent problems with RVM  =
+# http://stackoverflow.com/questions/18317549/why-do-i-get-a-path-error-when-sourcing-rvm
+
+# Load ~/.exports, ~/.aliases, ~/.functions, ~/.fun, and ~/.extra
+for file in ~/.{exports,aliases,functions,fun,extra}; do
+    [ -r "$file" ] && source "$file"
+done
+unset file
+
+
+# Vim mode in shell
+set -o vi
 

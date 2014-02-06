@@ -17,12 +17,14 @@ brew install hub
 # sudo ln -s /usr/local/bin/imagesnap /usr/bin/
 brew install pv
 brew install ssh-copy-id
-brew install vim
+# brew install vim
 brew install wget --enable-iri
 brew install tree
 brew install gibo
 brew install dnsmasq
 brew install gawk
+brew install redis
+brew install z
 
 
 # brew cask install google-chrome 

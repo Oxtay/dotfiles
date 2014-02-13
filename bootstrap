@@ -249,8 +249,8 @@ install_dotfiles () {
             
             # =============
             # = By Ashkan =
-            # install_z
-            configure_dnsmasq
+              install_z
+            # configure_dnsmasq
             # =============
             
             ;;

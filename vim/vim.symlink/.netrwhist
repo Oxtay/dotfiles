@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/ashkan/projects/current/gary'
 let g:netrw_dirhist_2='/Users/ashkan/projects/current/gary/Library'
 let g:netrw_dirhist_3='/Users/ashkan/projects/current/gary/Library/AppleScripts'
 let g:netrw_dirhist_4='/Users/ashkan/.dotfiles/vim/vim.symlink/ruby'
+let g:netrw_dirhist_5='/root/.dotfiles/vim/vim.symlink/bundle/vundle'

@@ -81,10 +81,6 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 
-" follwing 2 bundles are for Dash in mac
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
-
 " original repos on GitHub
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'

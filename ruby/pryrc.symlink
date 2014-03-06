@@ -3,9 +3,11 @@
 # vim FTW - you can use 'mate' or whichever your prefer
 Pry.config.editor = 'vim'
  
-Pry.config.hooks.add_hook :after_session, :say_bye do
-  puts "bye-bye" if Pry.active_sessions == 1
-end
+Pry.config.theme = 'railscasts'
+
+# Pry.config.hooks.add_hook :after_session, :say_bye do
+#   puts "bye-bye" if Pry.active_sessions == 1
+# end
  
 # Prompt with ruby version
 Pry.prompt = [proc { |obj, nest_level, _| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level, _| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]

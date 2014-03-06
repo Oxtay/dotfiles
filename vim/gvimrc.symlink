@@ -1,12 +1,24 @@
-"color codeschool
-set background=light
-colorscheme solarized
-let g:solarized_termcolors=256
+" Most configs here are stolen from mislav/vimfiles
+colorscheme railscasts
+" color codeschool
+" set background=light
+" colorscheme solarized
+" let g:solarized_termcolors=256
 
-set guifont=Monaco:h15
+" set guifont=Monaco:h15
+set guifont=Menlo\ Regular:h15
+set linespace=2
+set antialias
+set number
+" Don't beep
+set visualbell
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
+
+" if has("gui_macvim")
+"   Fullscreen takes up entire screen
+"   set fuoptions=maxhorz,maxvert
+" end
+
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
-:set number
-:set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands

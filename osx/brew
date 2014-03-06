@@ -27,6 +27,7 @@ brew install gawk
 brew install redis
 brew install z
 brew install growly
+brew install gist
 
 # brew cask install google-chrome 
 # brew cask install charles 

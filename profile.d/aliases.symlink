@@ -89,8 +89,7 @@ elif [[ $(uname -s) == "Linux" ]]; then
     source ~/.profile.linux.d/aliases
 fi
 
-# Delete all keys from current local session of redis
-alias credis="redis-cli KEYS \"*\" | xargs redis-cli DEL"
-
 # run vim without any plugin or bundle, ... --> nice when vim doesn't run after installing a plugin...
 alias nakedvim="vim -u NONE -U NONE"
+
+

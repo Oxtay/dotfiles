@@ -34,9 +34,7 @@ brew install gist
 # brew cask install mou 
 # brew cask install dropbox 
 # brew cask install evernote 
-# brew cask install f-lux 
 # brew cask install iterm2 
-# brew cask install textexpander  
 # brew cask install vlc 
 # brew cask install onepassword 
 # brew cask install the-unarchiver 
@@ -45,7 +43,8 @@ brew install gist
 # brew cask install macupdate-desktop
 # brew cask install growlnotify
 # brew cask install xtrafinder
-
-
+# brew cask install launchbar  ---> configure it by setting symlink to my dropbox
+# brew cask install things ---> configure it by setting symlink to my dropbox
+# brew cask install textexpander  ---> configure it by setting symlink to my dropbox
 
 brew cleanup

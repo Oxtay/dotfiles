@@ -28,6 +28,7 @@ brew install redis
 brew install z
 brew install growly
 brew install gist
+brew install class-dump # https://github.com/nygard/class-dump
 
 # brew cask install google-chrome 
 # brew cask install charles 
@@ -46,5 +47,9 @@ brew install gist
 # brew cask install launchbar  ---> configure it by setting symlink to my dropbox
 # brew cask install things ---> configure it by setting symlink to my dropbox
 # brew cask install textexpander  ---> configure it by setting symlink to my dropbox
+# Quick-look plugins for developers (https://github.com/sindresorhus/quick-look-plugins)
+# brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
+
+
 
 brew cleanup

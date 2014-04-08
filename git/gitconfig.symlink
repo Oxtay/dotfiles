@@ -62,10 +62,10 @@
   ##########################################################################################
   
 [user]
-    name = Ashkan Roshanayi
-    email = ashkan.roshanayi@gmail.com
+    name = Okhtay Azarmanesh
+    email = okhtay@gmail.com
 [github]
-    user = ashkanr
+    user = oxtay
 [credential]
     helper = osxkeychain
 

@@ -1,14 +1,16 @@
 # Modified/Stolen from:
 # http://mths.be/dotfiles
 
-# ==========
-# = By Ashkan =
+# ======================
+# =     By Ashkan      =
+# = Modified by Okhtay =
+# ======================
 if [ -z "$PS1" ]; then
    return
 fi
 # shows git branch in color if I am in a git repo directory
 PS1='\W\[\033[0;31m\]`git branch 2>/dev/null|cut -f2 -d\* -s`\[\033[00m\] $'
-# ==========
+# ======================
 
 
 # Case-insensitive globbing (used in pathname expansion)
